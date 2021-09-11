@@ -15,10 +15,7 @@ const Main = () => {
           <img alt="s" src={splash1} />
         </div>
       </div>
-      <div className="row justify-content-center about-section">
-        {/* <div className="col-md-6 splash-container">
-          <img alt="s" src={splash1} />
-        </div> */}
+      {/* <div className="row justify-content-center about-section">
         <div className="col-md-4 story">
           <p>
             Bonjour, <br />
@@ -31,7 +28,7 @@ const Main = () => {
             Je suis Ayo. Hasd asdaioerea aoisfh adaoidsh sadoahsdao daoasdhad
           </p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

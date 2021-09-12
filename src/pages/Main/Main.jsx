@@ -1,9 +1,22 @@
 import React from "react";
 import "./style.scss";
 import splash1 from "../../images/splash1.png";
+import HeaderPanel from "../../components/HeaderPanel/HeaderPanel";
 const Main = () => {
   return (
     <div className="main ">
+      <HeaderPanel />
+      <div className="row home-section">
+        <div className="col-md-7 hello">
+          <p>
+            Bonjour, <br />
+            Je suis Ayo.
+          </p>
+        </div>
+        <div className="col-md-5 splash-container">
+          <img alt="s" src={splash1} />
+        </div>
+      </div>
       <div className="row home-section">
         <div className="col-md-7 hello">
           <p>

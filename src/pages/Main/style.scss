@@ -10,16 +10,18 @@
   justify-content: right;
   align-items: center;
 }
-@mixin fill-screen {
-  width: 100%;
+@mixin hor-fill-screen {
+  width: 90%;
+}
+@mixin vert-fill-screen {
   min-height: 100vh;
 }
+
 .main {
-  @include fill-screen();
+  @include hor-fill-screen();
 
   .home-section {
-    @include fill-screen();
-
+    @include vert-fill-screen();
     .hello {
       @include center-div-contents();
       p {
@@ -28,16 +30,14 @@
     }
 
     .splash-container {
-      @include align-right-div-contents();
+      @include center-div-contents();
       img {
-        height: 450px;
+        height: 370px;
       }
     }
   }
-  
-  .about-section {
-    @include fill-screen();
 
+  .about-section {
     .story {
       @include center-div-contents();
       p {

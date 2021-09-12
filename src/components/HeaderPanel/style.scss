@@ -1,0 +1,63 @@
+@mixin vert-center-div-contents {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@mixin align-left-div-contents {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+}
+
+@mixin panel-item {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+@mixin header-panel-animation {
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.header-panel {
+  position: fixed;
+  width: 90%;
+  height: 40px;
+  padding-top: 10px;
+  @include header-panel-animation();
+  .panel {
+    .profile {
+      @include align-left-div-contents();
+      padding-left: 40px;
+      p {
+        @include panel-item();
+      }
+    }
+    .section-tag {
+      p {
+        @include panel-item();
+      }
+      &:hover {
+        cursor: pointer;
+        border-bottom: 1px solid #dd4335;
+      }
+    }
+    .switch-tag {
+      p {
+        @include panel-item();
+      }
+    }
+  }
+}
+
+.transparent {
+  opacity: 0.4;
+  padding-bottom: 2px !important;
+  padding-top: 2px !important;
+  @include header-panel-animation();
+}

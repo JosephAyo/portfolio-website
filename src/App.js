@@ -1,13 +1,14 @@
 import "./App.scss";
 import Main from "./pages/Main/Main";
+import { DisplayContextProvider } from "./context/DisplayContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-main dark-mode">
-        <Main />
-      </header>
-    </div>
+    <DisplayContextProvider>
+      <div className="App">
+          <Main />
+      </div>
+    </DisplayContextProvider>
   );
 }
 

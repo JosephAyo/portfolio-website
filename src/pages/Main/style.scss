@@ -1,3 +1,8 @@
+$bg-dark-mode: rgb(29, 23, 23);
+$grey-dark-mode: rgba(66, 66, 66, 0.712);
+$white-text: #fff;
+$primary: rgb(0, 132, 255);
+
 @mixin center-div-contents {
   display: flex;
   flex-direction: row;
@@ -17,33 +22,47 @@
   min-height: 100vh;
 }
 
-.main {
-  @include hor-fill-screen();
+.App-main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
 
-  .home-section {
-    @include vert-fill-screen();
-    .hello {
-      @include center-div-contents();
-      p {
-        font-size: 60px;
+  .main {
+    @include hor-fill-screen();
+
+    .home-section {
+      @include vert-fill-screen();
+      .hello {
+        @include center-div-contents();
+        p {
+          font-size: 60px;
+        }
+      }
+
+      .splash-container {
+        @include center-div-contents();
+        img {
+          height: 370px;
+        }
       }
     }
 
-    .splash-container {
-      @include center-div-contents();
-      img {
-        height: 370px;
+    .about-section {
+      .story {
+        @include center-div-contents();
+        p {
+          font-size: 20px;
+          text-align: left;
+        }
       }
     }
   }
+}
 
-  .about-section {
-    .story {
-      @include center-div-contents();
-      p {
-        font-size: 20px;
-        text-align: left;
-      }
-    }
-  }
+.dark-mode {
+  background-color: $bg-dark-mode;
+  color: $white-text;
 }

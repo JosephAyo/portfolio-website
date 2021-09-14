@@ -51,6 +51,9 @@
       p {
         @include panel-item();
       }
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }

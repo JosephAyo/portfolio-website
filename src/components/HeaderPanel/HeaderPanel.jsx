@@ -6,8 +6,8 @@ import HeaderPanelItems from "../HeaderPanelItems/HeaderPanelItems";
 
 const sections = ["Home", "Skills", "Projects", "Contact"];
 const HeaderPanel = (props) => {
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [currentSection, setCurrentSection] = useState(0);
+  const [opaquePanel, setOpaquePanel] = useState(true);
+  const [clickedToScroll, setClickedToScroll] = useState(false);
   const { displayMode, setDisplayMode } = useContext(DisplayContext);
 
   useEffect(() => {
@@ -15,10 +15,16 @@ const HeaderPanel = (props) => {
     return () => {
       window.removeEventListener("scroll", scrollHandler, { passive: true });
     };
-  }, []);
+  });
 
   const scrollHandler = () => {
-    setScrollPosition(window.pageYOffset);
+    if (window.pageYOffset > 40 && !clickedToScroll) {
+      setOpaquePanel(false);
+    } else if (window.pageYOffset > 40) {
+      setOpaquePanel(false);
+    } else {
+      setOpaquePanel(true);
+    }
   };
 
   const setDisplayModeHandler = () => {
@@ -29,20 +35,41 @@ const HeaderPanel = (props) => {
     }
   };
 
+  const headerItemClickHandler = (sectionIndex) => {
+    window.scrollTo({
+      top: window.innerHeight * sectionIndex,
+      left: 0,
+      behavior: "smooth",
+    });
+    setClickedToScroll(true);
+    setPanelOpaqueTemp(sectionIndex);
+  };
+
+  const setPanelOpaqueTemp = (sectionIndex) => {
+    setOpaquePanel(true);
+    if (sectionIndex !== 0)
+      setTimeout(() => {
+        setOpaquePanel(false);
+      }, 1000);
+    setClickedToScroll(false);
+  };
+
   return (
     <div
-      className={
-        scrollPosition > 55 ? "header-panel transparent" : "header-panel"
-      }
-      onMouseEnter={() => setScrollPosition(0)}
-      onMouseLeave={() => setScrollPosition(window.pageYOffset)}
+      className={opaquePanel ? "header-panel" : "header-panel transparent"}
+      onMouseEnter={() => setOpaquePanel(true)}
+      onMouseLeave={() => setOpaquePanel(false)}
     >
       <div className="row  align-items-center panel">
         <div className="col-md-7 profile">
           <p>Ayo</p>
         </div>
         {sections.map((section, index) => (
-          <HeaderPanelItems itemName={section} sectionIndex={index} />
+          <HeaderPanelItems
+            itemName={section}
+            sectionIndex={index}
+            onClickItem={() => headerItemClickHandler(index)}
+          />
         ))}
         <div
           className="col-md-1 switch-tag"
@@ -57,6 +84,23 @@ const HeaderPanel = (props) => {
           </p>
         </div>
       </div>
+      {/* <div className="panel">
+        {sections.map((section, index) => (
+          <HeaderPanelItems itemName={section} sectionIndex={index} />
+        ))}
+        <div
+          className="switch-tag"
+          onClick={() => setDisplayModeHandler()}
+        >
+          <p>
+            <i
+              style={{ fontSize: "14px" }}
+              class={displayMode === "dark" ? "far fa-moon" : "far fa-sun"}
+              aria-hidden="true"
+            ></i>
+          </p>
+        </div>
+      </div> */}
     </div>
   );
 };

@@ -1,3 +1,4 @@
+@import "../../utilities/_variables";
 $bg-dark-mode: rgb(29, 23, 23);
 $grey-dark-mode: rgba(66, 66, 66, 0.712);
 $white-text: #fff;
@@ -46,6 +47,12 @@ $primary: rgb(0, 132, 255);
         @include center-div-contents();
         img {
           height: 370px;
+        }
+
+        @media (max-width: $small) {
+          img {
+            height: 250px;
+          }
         }
       }
     }

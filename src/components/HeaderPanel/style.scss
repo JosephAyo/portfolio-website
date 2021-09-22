@@ -1,7 +1,15 @@
+@import "../../utilities/_variables";
 @mixin vert-center-div-contents {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+@mixin vert-hori-center-div-contents {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 @mixin align-left-div-contents {
@@ -16,6 +24,11 @@
   margin-bottom: 0;
 }
 
+@mixin panel-item-mobile {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
 @mixin header-panel-animation {
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
@@ -27,7 +40,6 @@
 .header-panel {
   position: fixed;
   width: 90%;
-  height: 40px;
   padding-top: 10px;
   @include header-panel-animation();
   .panel {
@@ -59,8 +71,53 @@
 }
 
 .transparent {
-  opacity: 0.4;
+  opacity: 0.2;
   padding-bottom: 2px !important;
   padding-top: 2px !important;
   @include header-panel-animation();
+}
+
+@media (max-width: $small) {
+  .header-panel {
+    position: fixed;
+    top: 40%;
+    left: 10px;
+    max-width: 20%;
+    border: 1px solid #77aaff;
+    box-shadow: 4px 4px #77aaff;
+    padding: 2px;
+    @include header-panel-animation();
+    .panel {
+      .profile {
+        display: none;
+      }
+      .section-tag {
+        height: 40px;
+        @include vert-hori-center-div-contents();
+        p {
+          @include panel-item();
+          @include panel-item-mobile();
+        }
+        &:hover {
+          cursor: pointer;
+          border-bottom: none;
+        }
+      }
+      .switch-tag {
+        p {
+          @include panel-item();
+          @include panel-item-mobile();
+        }
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .transparent {
+    opacity: 0.1;
+    left: 5px;
+    @include header-panel-animation();
+  }
 }

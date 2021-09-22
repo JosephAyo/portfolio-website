@@ -1,17 +1,8 @@
 import React from "react";
 
-const HeaderPanelItems = ({itemName, sectionIndex}) => {
+const HeaderPanelItems = ({ itemName, onClickItem }) => {
   return (
-    <div
-      className="col-md-1 section-tag"
-      onClick={() =>
-        window.scrollTo({
-          top: window.innerHeight * sectionIndex,
-          left: 0,
-          behavior: "smooth",
-        })
-      }
-    >
+    <div className="col-md-1 section-tag" onClick={() => onClickItem()}>
       <p>{itemName}</p>
     </div>
   );

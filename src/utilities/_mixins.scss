@@ -1,0 +1,14 @@
+@mixin flex-center-div-contents {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin all-animation($time: "0.4s") {
+  -webkit-transition: all unquote($time) ease-in-out;
+  -moz-transition: all unquote($time) ease-in-out;
+  -ms-transition: all unquote($time) ease-in-out;
+  -o-transition: all unquote($time) ease-in-out;
+  transition: all unquote($time) ease-in-out;
+}

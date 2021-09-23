@@ -1,4 +1,6 @@
 @import "../../utilities/_variables";
+@import "../../utilities/_mixins";
+
 @mixin vert-center-div-contents {
   display: flex;
   flex-direction: row;
@@ -29,14 +31,6 @@
   margin-bottom: 2px;
 }
 
-@mixin header-panel-animation {
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -ms-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-}
-
 .main-panel {
   .header-panel {
     position: fixed;
@@ -44,7 +38,7 @@
     padding-top: 10px;
     z-index: 1;
     overflow-x: hidden;
-    @include header-panel-animation();
+    @include all-animation();
     .panel {
       .profile {
         @include align-left-div-contents();
@@ -80,7 +74,7 @@
     opacity: 0.2;
     padding-bottom: 2px !important;
     padding-top: 2px !important;
-    @include header-panel-animation();
+    @include all-animation();
   }
 
   @media (max-width: $small) {
@@ -98,7 +92,7 @@
       box-shadow: 4px 4px #77aaff;
       padding: 2px;
       opacity: 0.2;
-      @include header-panel-animation();
+      @include all-animation();
       .panel {
         .section-tag {
           height: 50px;

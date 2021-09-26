@@ -1,0 +1,14 @@
+@import "../../utilities/_variables";
+@import "../../utilities/_mixins";
+
+.skill-circle {
+  width: 180px;
+  height: 180px;
+  margin: 10px 30px;
+  @include flex-center-div-contents();
+  border-radius: 50%;
+  box-shadow: -2px -2px 2px #4b2e5275, 2px 2px 2px #28354b9c;
+  .svg-container {
+      width: 140px;
+  }
+}

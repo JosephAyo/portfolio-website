@@ -64,6 +64,17 @@
       width: 80%;
       flex-wrap: wrap;
       padding-top: 60px;
+      .skill-circle {
+        width: 200px;
+        height: 200px;
+        margin: 10px 30px;
+        @include flex-center-div-contents();
+        border-radius: 50%;
+        box-shadow: -2px -2px 2px #77aaff, 2px 2px 2px #e477ff;
+        .svg-container {
+          width: 140px;
+        }
+      }
     }
     @media (max-width: $small) {
       .projects-section {

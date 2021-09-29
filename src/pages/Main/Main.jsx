@@ -62,11 +62,11 @@ const Main = () => {
           </div>
         </div>
         <div className="projects-section home-section">
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
+          <ProjectCard name='Citi-monitor'/>
+          <ProjectCard name='Audiobook app'/>
+          <ProjectCard name='Bloom research website'/>
+          <ProjectCard name='E-agric'/>
+          <ProjectCard name='Theme-organizer'/>
         </div>
         <div className="row home-section">
           <div className="col-md-7 hello">
